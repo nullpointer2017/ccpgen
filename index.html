@@ -372,7 +372,7 @@
     ctx.textBaseline = "top";
     ctx.shadowColor = "rgba(0,0,0,0.85)";
     ctx.shadowBlur = shadowBlur;
-    ctx.font = `700 ${fontSize}px "Noto Serif JP"`;
+    ctx.font = `700 ${fontSize}px ${getFontFamily()}`;
 
     const tokens = parseTokens(raw, baseColor, HIGHLIGHT_COLOR);
     const lines = layoutTokens(ctx, tokens, areaW);
@@ -398,7 +398,7 @@
       const bottomMargin = H * 0.06;
 
       ctx.save();
-      ctx.font = `500 ${fSize}px ${getFontFamily()}`;
+      ctx.font = `500 ${fSize}px "Noto Serif JP"`;
       ctx.textBaseline = "alphabetic";
       ctx.textAlign = "center";
       ctx.fillStyle = baseColor;
@@ -497,3 +497,4 @@
 </script>
 </body>
 </html>
+
