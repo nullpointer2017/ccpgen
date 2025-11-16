@@ -35,16 +35,18 @@ async function initI18next() {
   const langSelect = document.getElementById('languageSelect');
   if (langSelect) {
     langSelect.value = i18nextInstance.language;
-    langSelect.addEventListener('change', (e) => {
-      i18nextInstance.changeLanguage(e.target.value).then(() => {
-        updateTranslations();
-        updateSelectOptions();
-        // Update text based on current background and new language
-        updateInitialText();
-        updateFooterText();
-        render();
-      });
+  langSelect.addEventListener('change', (e) => {
+    i18nextInstance.changeLanguage(e.target.value).then(() => {
+      updateTranslations();
+      updateSelectOptions();
+      // Update text based on current background and new language
+      updateInitialText();
+      updateFooterText();
+      // Update flag names based on new language
+      populateFlagSelects();
+      render();
     });
+  });
   }
 }
 
@@ -266,10 +268,27 @@ function loadFlags() {
     });
 }
 
+function getFlagName(flag) {
+  if (!i18nextInstance) return flag.name || flag.nameEn || '';
+  
+  const lang = i18nextInstance.language;
+  const langMap = {
+    'ja': 'name',
+    'en': 'nameEn',
+    'zh-Hans': 'nameZhHans',
+    'zh-Hant': 'nameZhHant',
+    'ko': 'nameKo'
+  };
+  
+  const nameKey = langMap[lang] || 'nameEn';
+  return flag[nameKey] || flag.nameEn || flag.name || '';
+}
+
 function createFlagOption(flag, defaultCode) {
   const option = document.createElement('option');
   option.value = flag.emoji;
-  option.textContent = `${flag.name} ${flag.emoji}`;
+  const flagName = getFlagName(flag);
+  option.textContent = `${flagName} ${flag.emoji}`;
   if (flag.code === defaultCode) option.selected = true;
   return option;
 }
