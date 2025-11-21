@@ -185,11 +185,14 @@ function updateFooterText() {
 const HIGHLIGHT_COLOR = "#D8AE5C";
 const FLAG_DEFAULT_CODES = { flag1: 'CN', flag2: 'JP' };
 const BACKGROUND_TYPES = {
-  FOREIGN_AFFAIRS: 'background.png',
-  FOREIGN_AFFAIRS2: 'background1.png',
-  FOREIGN_AFFAIRS3: 'background1.1.png',
-  FOREIGN_AFFAIRS4: 'background1.2.png',
-  FOREIGN_AFFAIRS5: 'background1.3.png',
+  FOREIGN_AFFAIRS: 'background1.1.1.png',
+  FOREIGN_AFFAIRS2: 'background1.1.2.png',
+  FOREIGN_AFFAIRS3: 'background1.1.3.png',
+  FOREIGN_AFFAIRS4: 'background1.2.1.png',
+  FOREIGN_AFFAIRS5: 'background1.2.2.png',
+  FOREIGN_AFFAIRS6: 'background1.2.3.png',
+  FOREIGN_AFFAIRS7: 'background1.3.1.png',
+  FOREIGN_AFFAIRS8: 'background1.3.2.png',
   DEFENSE: 'background2.png',
   MAO_NING: 'background3.png'
 };
@@ -201,6 +204,9 @@ function getFooterPrefixes() {
     FOREIGN_AFFAIRS3: i18nextInstance ? i18nextInstance.t('footerForeignAffairs3') : '中国外交部報道官',
     FOREIGN_AFFAIRS4: i18nextInstance ? i18nextInstance.t('footerForeignAffairs4') : '中国外交部報道官',
     FOREIGN_AFFAIRS5: i18nextInstance ? i18nextInstance.t('footerForeignAffairs5') : '中国外交部報道官',
+    FOREIGN_AFFAIRS6: i18nextInstance ? i18nextInstance.t('footerForeignAffairs6') : '中国外交部報道官',
+    FOREIGN_AFFAIRS7: i18nextInstance ? i18nextInstance.t('footerForeignAffairs7') : '中国外交部報道官',
+    FOREIGN_AFFAIRS8: i18nextInstance ? i18nextInstance.t('footerForeignAffairs8') : '中国外交部報道官',
     DEFENSE: i18nextInstance ? i18nextInstance.t('footerDefense') : '中国国防部報道官'
   };
 }
